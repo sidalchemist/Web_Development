@@ -1,0 +1,28 @@
+{% extends "base_show.html" %}
+{% block content %}
+<br>    
+<div class="panel panel-primary">
+    <br>
+    
+<h1 class="bg-primary"> To-do</h1>
+<ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="/create">Create</a></li>
+    <li role="presentation"><a href="#">Profile</a></li>
+    <li role="presentation"><a href="#">Messages</a></li>
+  </ul>
+<br>
+
+
+
+    <div class="list-group">
+        {% for todo in todo_list %}
+        <a href="/{{ todo.id }}" class="list-group-item ">
+            <h4 class="list-group-item-heading">{{ todo.name }}</h4>
+            <p class="list-group-item-text">{{ todo.due_date }}</p>
+          </a>
+          <br>
+          <br>
+        {% endfor %}
+        <a href="{{ todo.id }}/update"></a>
+    </div>
+{% endblock %}
